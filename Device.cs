@@ -20,8 +20,13 @@ namespace NET_Homework_4_2
 
         public Device(string name, string descripti)
         {
+            if (name == "")
+            {
+                throw new ArgumentNullException("Пристроя не існує!");
+            }
             Name = name;
             Descripti = descripti;
+            
         }
 
         public virtual void Sound() 
@@ -34,7 +39,14 @@ namespace NET_Homework_4_2
         }
         public virtual void Desc() 
         {
-            Console.WriteLine($"Опис: {Descripti}");
+            if (Descripti == "")
+            {
+                throw new ArgumentNullException($"Немає інформації про {Name}!");
+            }
+            else 
+            {
+                Console.WriteLine($"Опис: {Descripti}");
+            }
         }
     }
 }

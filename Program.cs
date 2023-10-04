@@ -6,6 +6,7 @@
 //■ Desc — відображає опис пристрою.
 
 using NET_Homework_4_2;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -20,42 +21,72 @@ while(a != 0)
         "2. Мікрохвильовка;\n" +
         "3. Автомобіль;\n" +
         "4. Пароплав.\n");
-    a = Convert.ToByte(Console.ReadLine());
-
+    
+        a = Convert.ToByte(Console.ReadLine());
+   
     switch (a)
     {
             case 0: { break; }
             case 1: 
             {
-                Kettle kettle = new Kettle("Чайник", "Опис чайника");
-                kettle.Show();
-                kettle.Sound();
-                kettle.Desc();
+                try 
+                {
+                    Kettle kettle = new Kettle("Чайник", "Опис чайника");
+                    kettle.Show();
+                    kettle.Sound();
+                    kettle.Desc();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
                 break;
             }
             case 2:
             {
-                Microwave microwave = new Microwave("Мікрохвильовка", "Опис мікрохвильовки");
-                microwave.Show();
-                microwave.Sound();
-                microwave.Desc();
+                try
+                {
+                    Microwave microwave = new Microwave("Мікрохвильовка", "Опис мікрохвильовки");
+                    microwave.Show();
+                    microwave.Sound();
+                    microwave.Desc();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
                 break;
             }
             case 3:
             {
-                Car car = new Car("Автомобіль", "Опис автомобіля");
-                car.Show();
-                car.Sound();
-                car.Desc();
-                break;
+                try
+                {
+                    Car car = new Car("Автомобіль", "Опис автомобіля");
+                    car.Show();
+                    car.Sound();
+                    car.Desc();
+            }
+                catch(Exception ex)
+                {
+                Console.WriteLine(ex.Message);
+            }
+            break;
             }
             case 4:
             {
-                Steamer steamer = new Steamer("Пароплав", "Опис пароплава");
-                steamer.Show();
-                steamer.Sound();
-                steamer.Desc();
-                break;
+                try
+                {
+                    Steamer steamer = new Steamer("Пароплав", "Опис пароплава");
+                    steamer.Show();
+                    steamer.Sound();
+                    steamer.Desc();
+        }
+                catch(Exception ex)
+                {
+            Console.WriteLine(ex.Message);
+        }
+        break;
             }
     }
 }
